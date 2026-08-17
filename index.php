@@ -11,6 +11,8 @@
 
     <h1>Bem vindo ao cadastro de usuário!</h1>
     
+    <div>
+
     <form action="public/cadastrar_usuario.php" method="POST">
         <label for="nome">Nome do usuário: </label>
         <input type="text" name="nome" required>
@@ -18,6 +20,10 @@
         <input type="email" name="email" required>
         <button type="submit">Cadastrar</button>
     </form>
+
+    <a href="public/listar_pratos.php">Verificar pratos</a>
+
+    </div>
 
     <table>
                 <tr>
@@ -41,7 +47,7 @@
                         <td><?php echo $usuario["email"] ?></td>   
                         <td>
                             <a href="public/formulario_cadastro_pratos.php?id=<?php echo $usuario["id_usuario"] ?>">Cadastrar prato</a>
-                            <a href="public/listar_pratos.php?id=<?php echo $usuario["id_usuario"] ?>">Verificar pratos</a>
+                            <a href="public/listar_pratos_usuario.php?id=<?php echo $usuario["id_usuario"] ?>">Verificar pratos do usuário</a>
                         </td>           
                     </tr>
     <?php } ?>

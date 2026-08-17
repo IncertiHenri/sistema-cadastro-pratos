@@ -4,9 +4,13 @@ include("../infra/conexao.php");
 
 $id = $_GET["id"];
 
-$sql = "DELETE FROM prato WHERE id = $id";
+$sql = "DELETE FROM prato WHERE id = ?";
 
-$conn->query($sql);
+$stmt = $conn->prepare($sql);
+
+$stmt->bind_param("i",$id);
+
+$stmt->execute();
 
 header("Location:../index.php");
 exit;

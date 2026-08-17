@@ -41,6 +41,7 @@
                         <td><?php echo $usuario["email"] ?></td>   
                         <td>
                             <a href="public/formulario_cadastro_pratos.php?id=<?php echo $usuario["id_usuario"] ?>">Cadastrar prato</a>
+                            <a href="public/listar_pratos.php?id=<?php echo $usuario["id_usuario"] ?>">Verificar pratos</a>
                         </td>           
                     </tr>
     <?php } ?>

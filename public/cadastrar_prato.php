@@ -7,13 +7,11 @@ $descricao = $_POST["descricao"];
 $preco = $_POST["preco"];
 $categoria = $_POST["categoria"];
 
+$sql = "INSERT INTO prato (nome,descricao,preco,categoria) VALUES ('$nome','$descricao','$preco',$categoria')";
+
+$conn->query($sql);
+
 header("Location:../index.php");
 exit;
-
-echo "Nome: " . $nome . "<br>";
-echo "Descrição: " . $descricao . "<br>";
-echo "Preço: " . $preco . "<br>";
-echo "Categoria: " . $categoria . "<br>";
-=
 
 ?>

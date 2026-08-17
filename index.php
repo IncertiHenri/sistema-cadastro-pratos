@@ -19,6 +19,28 @@
         <button type="submit">Cadastrar</button>
     </form>
 
+    <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                </tr>
+
+    <?php
+    
+    $sql = "SELECT * FROM usuario";
+
+    $usuarios = $conn->query($sql);
+
+    while ($usuario = mysqli_fetch_assoc($usuarios)) {
+    ?>
+
+                    <tr>
+                        <td><?php echo $usuario["id_usuario"] ?></td>
+                        <td><?php echo $usuario["nome"] ?></td>
+                        <td><?php echo $usuario["email"] ?></td>              
+                    </tr>
+    <?php } ?>
 
 </body>
 </html>

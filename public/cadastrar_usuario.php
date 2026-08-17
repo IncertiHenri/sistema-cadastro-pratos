@@ -5,9 +5,13 @@ include("../infra/conexao.php");
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 
-$sql = "INSERT INTO usuario (nome,email) VALUES ('$nome','$email')";
+$sql = "INSERT INTO usuario (nome,email) VALUES (?,?)";
 
-$conn->query($sql);
+$stmt = $conn->prepare($sql);
+
+$stmt->bind_param("ss",$nome,$email);
+
+$stmt->execute();
 
 header("Location:../index.php");
 exit;

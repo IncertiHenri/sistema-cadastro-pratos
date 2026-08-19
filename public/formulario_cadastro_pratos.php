@@ -15,15 +15,12 @@
     ?>
     
     <?php
-    $sql = "SELECT id_usuario FROM usuario";
 
-    $usuarios = $conn->query($sql);
-    
-    $usuario = mysqli_fetch_assoc($usuarios);
+    $id_usuario = $_GET["id"];
 
     ?>
 
-    <form action="cadastrar_prato.php?id_usuario=<?php echo $usuario["id_usuario"] ?>" method="POST">
+    <form action="cadastrar_prato.php?id_usuario=<?php echo $id_usuario; ?>" method="POST">
         <label for="nome">Nome do prato: </label>
         <input type="text" name="nome" required>
         <label for="descricao">Descrição do prato: </label>

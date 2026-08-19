@@ -16,7 +16,7 @@ $stmt->bind_param("ssdsi",$nome,$descricao,$preco,$categoria,$id_usuario);
 
 $stmt->execute();
 
-header("Location:formulario_cadastro_pratos.php");
+header("Location:../index.php");
 exit;
 
 ?>

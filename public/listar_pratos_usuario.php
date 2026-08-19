@@ -43,7 +43,7 @@
                         <td><?php echo $prato["categoria"] ?></td>
                         <td><?php echo $prato["id_usuario"] ?></td>    
                         <td>
-                            <a href="public/excluir_prato.php?id=<?php echo $prato["id_prato"] ?>">Excluir prato</a>
+                            <a href="excluir_prato.php?id=<?php echo $prato["id_prato"] ?>">Excluir prato</a>
                         </td>   
                     </tr>
     <?php } ?>

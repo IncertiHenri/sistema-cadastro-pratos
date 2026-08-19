@@ -4,7 +4,7 @@ include("../infra/conexao.php");
 
 $id = $_GET["id"];
 
-$sql = "DELETE FROM prato WHERE id = ?";
+$sql = "DELETE FROM prato WHERE id_prato = ?";
 
 $stmt = $conn->prepare($sql);
 

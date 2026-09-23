@@ -4,7 +4,7 @@ include "../infra/conexao.php";
 
 $id = $_GET["id"];
 
-$sql = "SELECT * FROM prato WHERE id = ?";
+$sql = "SELECT * FROM prato WHERE id_prato = ?";
 
 $stmt = $conn->prepare($sql);
 
@@ -29,7 +29,7 @@ $prato = $resultado->fetch_assoc();
     <h1>Editar prato!</h1>
 
 
-    <form action="atualizar_prato.php?id_usuario=<?php echo $prato["id"] ?>" method="POST">
+    <form action="atualizar_prato.php?id=<?php echo $prato["id_prato"]; ?>" method="POST">
 
         <label for="nome">Nome do prato: </label>
         <input type="text" name="nome" value="<?php echo $prato["nome"]; ?>"  required>

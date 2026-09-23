@@ -15,15 +15,26 @@
     ?>
     
     <?php
-    $sql = "SELECT id_usuario FROM usuario";
+    $sql = "SELECT id_usuario, nome FROM usuario";
 
     $usuarios = $conn->query($sql);
-    
-    $usuario = mysqli_fetch_assoc($usuarios);
 
     ?>
 
-    <form action="cadastrar_prato.php?id_usuario=<?php echo $usuario["id_usuario"] ?>" method="POST">
+    <form action="cadastrar_prato.php" method="POST">
+
+    <label for="id_usuario">Usuário responsável:</label>
+
+    <select name="id_usuario" required>
+        <option value="">Selecione um usuário</option>
+
+        <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
+            <option value="<?php echo $usuario["id_usuario"]; ?>">
+                <?php echo $usuario["nome"]; ?>
+            </option>
+        <?php } ?>
+    </select> 
+    
         <label for="nome">Nome do prato: </label>
         <input type="text" name="nome" required>
         <label for="descricao">Descrição do prato: </label>
@@ -34,8 +45,6 @@
         <input type="text" name="categoria" required>
         <button type="submit">Cadastrar</button>
     </form>
-
-
 
 </body>
 </html>

@@ -17,6 +17,7 @@
                     <th>Preço</th>
                     <th>Categoria</th>
                     <th>Usuário</th>
+                    <th>Ações</th>
                 </tr>
 
     <?php
@@ -36,10 +37,15 @@
                         <td><?php echo $prato["descricao"] ?></td>   
                         <td><?php echo $prato["preco"] ?></td>
                         <td><?php echo $prato["categoria"] ?></td>
-                        <td><?php echo $prato["id_usuario"] ?></td>     
+                        <td><?php echo $prato["id_usuario"] ?></td>   
+                        <td>
+                            <a href="editar_prato.php?id=<?php echo $prato["id_prato"] ?>">Editar</a>
+                            <a href="excluir_prato.php?id=<?php echo $prato["id_prato"] ?>">Excluir</a>
+                        </td>  
                     </tr>
     <?php } ?>
 
+</table>
 
 </body>
 </html>

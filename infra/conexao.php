@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $usuario = "root";
-$senha = "root";
+$senha = "";
 $db = "sistema_pratos";
 
 $conn = new mysqli($host, $usuario, $senha, $db);

@@ -28,9 +28,15 @@
     <?php
     $id = $_GET["id"];
 
-    $sql = "SELECT * FROM prato WHERE id_usuario = $id";
+    $sql = "SELECT * FROM prato WHERE id_usuario = ?";
 
-    $pratos = $conn->query($sql);
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param("i", $id);
+
+    $stmt->execute();
+
+    $pratos = $stmt->get_result();
 
     while ($prato = mysqli_fetch_assoc($pratos)) {
     ?>
@@ -43,11 +49,11 @@
                         <td><?php echo $prato["categoria"] ?></td>
                         <td><?php echo $prato["id_usuario"] ?></td>    
                         <td>
-                            <a href="public/excluir_prato.php?id=<?php echo $prato["id_prato"] ?>">Excluir prato</a>
+                            <a href="excluir_prato.php?id=<?php echo $prato["id_prato"] ?>">Excluir prato</a>
                         </td>   
                     </tr>
     <?php } ?>
 
-
+</table>
 </body>
 </html>
